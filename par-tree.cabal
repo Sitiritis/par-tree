@@ -26,13 +26,19 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Core.Ast
+      Examples
   other-modules:
       Paths_par_tree
   hs-source-dirs:
       src
+  default-extensions:
+      OverloadedStrings
   build-depends:
       base >=4.7 && <5
+    , prettyprinter ==1.7.1
+    , prettyprinter-ansi-terminal ==1.1.3
+    , text ==1.2.4.1
   default-language: Haskell2010
 
 executable par-tree-exe
@@ -43,6 +49,9 @@ executable par-tree-exe
   build-depends:
       base >=4.7 && <5
     , par-tree
+    , prettyprinter ==1.7.1
+    , prettyprinter-ansi-terminal ==1.1.3
+    , text ==1.2.4.1
   default-language: Haskell2010
 
 test-suite par-tree-test
@@ -56,4 +65,7 @@ test-suite par-tree-test
   build-depends:
       base >=4.7 && <5
     , par-tree
+    , prettyprinter ==1.7.1
+    , prettyprinter-ansi-terminal ==1.1.3
+    , text ==1.2.4.1
   default-language: Haskell2010

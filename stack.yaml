@@ -67,4 +67,5 @@ packages:
 # compiler-check: newer-minor
 
 ghc-options:
-  "$everything": -haddock -Wall -Werror
+  "$everything": -haddock
+  "$locals": -Wall -Werror
