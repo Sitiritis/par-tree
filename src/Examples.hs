@@ -2,6 +2,7 @@ module Examples where
 
 import Core.Ast (Expr (..), Identifier (..))
 
+import Prelude (IO, putStrLn, (*>), Int)
 import Prettyprinter (Pretty (pretty))
 import Prettyprinter.Util (putDocW)
 

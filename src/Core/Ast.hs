@@ -6,6 +6,7 @@ module Core.Ast (
 import Prettyprinter (Doc, Pretty (pretty), align, nest, softline, unsafeViaShow, (<+>))
 
 import qualified Data.Text as T
+import Prelude (Integer, Show, (.), (<>))
 
 -- TODO: refine
 newtype Identifier = Identifier T.Text deriving (Show)
