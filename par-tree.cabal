@@ -1,4 +1,4 @@
-cabal-version: 2.0
+cabal-version: 1.12
 
 -- This file has been generated from package.yaml by hpack version 0.34.4.
 --
@@ -39,6 +39,7 @@ library
       src
   default-extensions:
       OverloadedStrings
+      NoImplicitPrelude
   ghc-options: -Wall -Werror
   build-depends:
       accelerate ==1.3.0.0
@@ -47,10 +48,6 @@ library
     , prettyprinter-ansi-terminal ==1.1.3
     , relude ==1.0.0.1
     , text ==1.2.4.1
-  mixins:
-      base hiding (Prelude)
-    , relude hiding ()
-    , relude (Relude as Prelude)
   if flag(gpu)
     cpp-options: -DACCELERATE_LLVM_PTX_BACKEND
     build-depends:
@@ -69,6 +66,7 @@ executable par-tree-exe
       app
   default-extensions:
       OverloadedStrings
+      NoImplicitPrelude
   ghc-options: -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       accelerate ==1.3.0.0
@@ -78,10 +76,6 @@ executable par-tree-exe
     , prettyprinter-ansi-terminal ==1.1.3
     , relude ==1.0.0.1
     , text ==1.2.4.1
-  mixins:
-      base hiding (Prelude)
-    , relude hiding ()
-    , relude (Relude as Prelude)
   if flag(gpu)
     cpp-options: -DACCELERATE_LLVM_PTX_BACKEND
     build-depends:
@@ -101,6 +95,7 @@ test-suite par-tree-test
       test
   default-extensions:
       OverloadedStrings
+      NoImplicitPrelude
   ghc-options: -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       accelerate ==1.3.0.0
@@ -110,10 +105,6 @@ test-suite par-tree-test
     , prettyprinter-ansi-terminal ==1.1.3
     , relude ==1.0.0.1
     , text ==1.2.4.1
-  mixins:
-      base hiding (Prelude)
-    , relude hiding ()
-    , relude (Relude as Prelude)
   if flag(gpu)
     cpp-options: -DACCELERATE_LLVM_PTX_BACKEND
     build-depends:

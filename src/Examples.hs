@@ -1,9 +1,9 @@
 module Examples where
 
 import Core.Ast (Expr (..), Identifier (..))
-
 import Prettyprinter (Pretty (pretty))
 import Prettyprinter.Util (putDocW)
+import Prelude (IO, Int, putStrLn, (*>))
 
 two :: Expr
 two = Lit 2

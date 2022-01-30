@@ -4,8 +4,11 @@ module AccelerateSample (
   dotp, sampleMain
 ) where
 
-import Data.Array.Accelerate as A
+import Relude (show)
+import Data.Array.Accelerate
 import Text.Printf (printf)
+import Data.Text (Text)
+import Relude (IO)
 
 #ifdef ACCELERATE_LLVM_NATIVE_BACKEND
 import Data.Array.Accelerate.LLVM.Native as CPU
@@ -16,15 +19,15 @@ import Data.Array.Accelerate.LLVM.PTX as PTX ( runN )
 
 -- | A simple vector inner product
 dotp :: Acc (Vector Double) -> Acc (Vector Double) -> Acc (Scalar Double)
-dotp xs ys = A.fold (+) 0 (A.zipWith (*) xs ys)
+dotp xs ys = fold (+) 0 (zipWith (*) xs ys)
 
 sampleMain :: IO ()
 sampleMain = do
   let xs :: Vector Double
-      xs = A.fromList (Z :. 10) [0 ..]
+      xs = fromList (Z :. 10) [0 ..]
 
       ys :: Vector Double
-      ys = A.fromList (Z :. 10) [1, 3 ..]
+      ys = fromList (Z :. 10) [1, 3 ..]
 
   printf "input data:\n"
   let xsStr :: Text
