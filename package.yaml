@@ -49,6 +49,7 @@ dependencies:
 default-extensions:
   - OverloadedStrings
   - NoImplicitPrelude
+  # - GeneralizedNewtypeDeriving
 
 ghc-options:
   - -Wall
