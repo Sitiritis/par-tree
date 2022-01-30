@@ -6,7 +6,6 @@ module Core.Ast (
 import Prettyprinter (Doc, Pretty (pretty), align, nest, softline, unsafeViaShow, (<+>))
 
 import qualified Data.Text as T
-import Prelude (Integer, Show, (.), (<>))
 
 -- TODO: refine
 newtype Identifier = Identifier T.Text deriving (Show)
@@ -15,8 +14,8 @@ data Expr
   = Lit Integer
   | Var Identifier
   | Let Identifier Expr
-  | Sum Expr Expr
-  | Prod Expr Expr
+  | Add Expr Expr
+  | Mult Expr Expr
   deriving (Show)
 
 softWrappedBinOp :: (Pretty l, Pretty r) => Doc a -> l -> r -> Doc a
@@ -28,6 +27,6 @@ instance Pretty Identifier where
 instance Pretty Expr where
   pretty (Lit i) = unsafeViaShow i
   pretty (Var name) = pretty name
-  pretty (Sum el er) = softWrappedBinOp "+" el er
-  pretty (Prod el er) = softWrappedBinOp "*" el er
   pretty (Let name e) = "let" <+> pretty name <+> "=" <> nest 2 (softline <> pretty e)
+  pretty (Add el er) = softWrappedBinOp "+" el er
+  pretty (Mult el er) = softWrappedBinOp "*" el er

@@ -2,7 +2,6 @@ module Examples where
 
 import Core.Ast (Expr (..), Identifier (..))
 
-import Prelude (IO, putStrLn, (*>), Int)
 import Prettyprinter (Pretty (pretty))
 import Prettyprinter.Util (putDocW)
 
@@ -10,12 +9,12 @@ two :: Expr
 two = Lit 2
 
 simpleSum :: Expr
-simpleSum = Sum two three
+simpleSum = Add two three
  where
   three = Lit 3
 
 simpleProd :: Expr
-simpleProd = Prod two seven
+simpleProd = Mult two seven
  where
   seven = Lit 7
 

@@ -1,4 +1,4 @@
-cabal-version: 1.12
+cabal-version: 2.0
 
 -- This file has been generated from package.yaml by hpack version 0.34.4.
 --
@@ -11,7 +11,7 @@ category:       Compiler
 homepage:       https://github.com/sitiritis/par-tree#readme
 bug-reports:    https://github.com/sitiritis/par-tree/issues
 author:         Tymur Lysenko
-maintainer:     example@example.com
+maintainer:     Tymur Lysenko
 copyright:      2021 Tymur Lysenko
 license:        BSD3
 license-file:   LICENSE
@@ -39,14 +39,18 @@ library
       src
   default-extensions:
       OverloadedStrings
-      NoImplicitPrelude
   ghc-options: -Wall -Werror
   build-depends:
       accelerate ==1.3.0.0
     , base >=4.7 && <5
     , prettyprinter ==1.7.1
     , prettyprinter-ansi-terminal ==1.1.3
+    , relude ==1.0.0.1
     , text ==1.2.4.1
+  mixins:
+      base hiding (Prelude)
+    , relude hiding ()
+    , relude (Relude as Prelude)
   if flag(gpu)
     cpp-options: -DACCELERATE_LLVM_PTX_BACKEND
     build-depends:
@@ -65,7 +69,6 @@ executable par-tree-exe
       app
   default-extensions:
       OverloadedStrings
-      NoImplicitPrelude
   ghc-options: -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       accelerate ==1.3.0.0
@@ -73,7 +76,12 @@ executable par-tree-exe
     , par-tree
     , prettyprinter ==1.7.1
     , prettyprinter-ansi-terminal ==1.1.3
+    , relude ==1.0.0.1
     , text ==1.2.4.1
+  mixins:
+      base hiding (Prelude)
+    , relude hiding ()
+    , relude (Relude as Prelude)
   if flag(gpu)
     cpp-options: -DACCELERATE_LLVM_PTX_BACKEND
     build-depends:
@@ -93,7 +101,6 @@ test-suite par-tree-test
       test
   default-extensions:
       OverloadedStrings
-      NoImplicitPrelude
   ghc-options: -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       accelerate ==1.3.0.0
@@ -101,7 +108,12 @@ test-suite par-tree-test
     , par-tree
     , prettyprinter ==1.7.1
     , prettyprinter-ansi-terminal ==1.1.3
+    , relude ==1.0.0.1
     , text ==1.2.4.1
+  mixins:
+      base hiding (Prelude)
+    , relude hiding ()
+    , relude (Relude as Prelude)
   if flag(gpu)
     cpp-options: -DACCELERATE_LLVM_PTX_BACKEND
     build-depends:
