@@ -1,14 +1,14 @@
 {-# LANGUAGE CPP #-}
 
 module AccelerateSample (
-  dotp, sampleMain
+  dotp,
+  sampleMain,
 ) where
 
-import Relude (show)
 import Data.Array.Accelerate
-import Text.Printf (printf)
 import Data.Text (Text)
-import Relude (IO)
+import Relude (IO, show)
+import Text.Printf (printf)
 
 #ifdef ACCELERATE_LLVM_NATIVE_BACKEND
 import Data.Array.Accelerate.LLVM.Native as CPU
