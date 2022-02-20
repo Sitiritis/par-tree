@@ -1,6 +1,6 @@
-module Examples where
+module Haskcalc.Examples where
 
-import Core.Ast (Expr (..), Identifier (..))
+import Haskcalc.Core.Ast (Expr (..), Identifier (..))
 import Prettyprinter (Pretty (pretty))
 import Prettyprinter.Util (putDocW)
 import Relude (IO, Int, NonEmpty ((:|)), putStrLn, (*>))

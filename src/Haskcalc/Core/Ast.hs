@@ -1,4 +1,4 @@
-module Core.Ast (
+module Haskcalc.Core.Ast (
   Expr (..),
   Identifier (..),
 ) where
