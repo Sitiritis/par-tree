@@ -5,10 +5,10 @@ module Haskcalc.Core.Ast (
 
 import qualified Data.Text as T
 import Prettyprinter (Doc, Pretty (pretty), align, hardline, nest, parens, sep, softline, unsafeViaShow, vsep, (<+>))
-import Relude (Foldable (toList), Integer, NonEmpty ((:|)), Show, toList, (.), (<$>), (<>))
+import Relude (Eq, Foldable (toList), Integer, NonEmpty ((:|)), Show, toList, (.), (<$>), (<>))
 
 -- TODO: refine
-newtype Identifier = Identifier T.Text deriving (Show)
+newtype Identifier = Identifier T.Text deriving (Show, Eq)
 
 data Expr
   = Lit Integer
@@ -18,7 +18,7 @@ data Expr
   | Mult Expr Expr
   | Func Identifier (NonEmpty Identifier) (NonEmpty Expr)
   | App Identifier (NonEmpty Expr)
-  deriving (Show)
+  deriving (Show, Eq)
 
 prettyWithParens :: Expr -> Doc ann
 prettyWithParens (Lit i) = pretty i
