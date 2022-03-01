@@ -1,5 +1,5 @@
 module Haskcalc.ConstantPropagation (
-) where
+  ) where
 
 import Haskcalc.ConstantPropagation.Internal ()
 
