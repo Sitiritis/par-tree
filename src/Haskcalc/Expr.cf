@@ -1,0 +1,22 @@
+FunDecl.  Decl ::= Ident [Ident] "=" "{" [Decl] "}" ;
+LetDecl.  Decl ::= "let" Ident "=" Expr ;
+
+ExprDecl. Decl ::= Expr ;
+
+separator Ident "" ;
+
+separator Decl ";" ;
+layout "=" ;
+
+Add.  Expr ::= Expr1 "+" Expr ;
+Mult. Expr1 ::= Expr2 "*" Expr1 ;
+App.  Expr2 ::= Ident [Expr] ;
+Val.  Expr3 ::= Ident ;
+Lit.  Expr3 ::= Integer ;
+
+_. Expr ::= Expr1;
+_. Expr1 ::= Expr2;
+_. Expr2 ::= Expr3;
+_. Expr3 ::= "(" Expr ")";
+
+separator Expr "" ;
