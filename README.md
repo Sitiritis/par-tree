@@ -8,6 +8,17 @@ See the [Dependancies](https://github.com/AccelerateHS/accelerate-llvm/blob/b177
 
 > LLVM 9 must be installed
 
+## Installing LLVM 9 on Mac
+
+Accelerate has its own [brew formula to install LLVM 9 properly](https://github.com/llvm-hs/homebrew-llvm/tree/220f10152695ab67b3f87e76e5d8dbcada72eabf). It should be used to install llvm:
+
+```bash
+brew tap llvm-hs/llvm
+brew install llvm-hs/llvm/llvm-9
+```
+
+It will take some time to build and install LLVM 9 this way.
+
 ## Pop OS
 
 When using Pop OS [cuda can be installed](https://support.system76.com/articles/cuda/) with the following command:
