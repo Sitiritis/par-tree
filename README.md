@@ -33,11 +33,13 @@ sudo ln -s /usr/lib/cuda/nvvm/lib64/libnvvm.so.4 /usr/lib/
 sudo ldconfig
 ```
 
-# Building the project and running it
+# Development
+
+## Building the project and running it
 
 The proejct can be built to run either using a CPU or GPU backend.
 
-## Using CPU backend
+### Using CPU backend
 
 1. Build the project without `gpu` flag:
 
@@ -53,7 +55,7 @@ The proejct can be built to run either using a CPU or GPU backend.
     stack exec par-tree-exe
     ```
 
-## Using GPU backend
+### Using GPU backend
 
 1. Build the project with `gpu` flag:
 
@@ -66,3 +68,24 @@ The proejct can be built to run either using a CPU or GPU backend.
     ```bash
     stack exec par-tree-exe
     ```
+
+## BNFC
+
+To describe the used programming language [BNFC](https://hackage.haskell.org/package/BNFC) package is utilezed.
+
+It needs to be installed once, e.g. with stack. Also the auxiliary tools must be installed:
+
+```bash
+stack install BNFC alex happy
+```
+
+### Compile BNFC
+
+```bash
+cd ./src
+bnfc -d -p Haskcalc -m Haskcalc/Expr.cf
+```
+
+Then parser and tests can be build with `make`.
+
+Run `make clean` to remove the built files.

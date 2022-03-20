@@ -3,12 +3,30 @@ module Haskcalc.Core.Ast (
   Identifier (..),
 ) where
 
-import qualified Data.Text     as T
-import           Prettyprinter (Doc, Pretty (pretty), align, hardline, nest,
-                                parens, sep, softline, unsafeViaShow, vsep,
-                                (<+>))
-import           Relude        (Foldable (toList), Integer, NonEmpty ((:|)),
-                                Show, toList, (.), (<$>), (<>))
+import qualified Data.Text as T
+import Prettyprinter (
+  Doc,
+  Pretty (pretty),
+  align,
+  hardline,
+  nest,
+  parens,
+  sep,
+  softline,
+  unsafeViaShow,
+  vsep,
+  (<+>),
+ )
+import Relude (
+  Foldable (toList),
+  Integer,
+  NonEmpty ((:|)),
+  Show,
+  toList,
+  (.),
+  (<$>),
+  (<>),
+ )
 
 -- TODO: refine
 newtype Identifier = Identifier T.Text deriving (Show)
@@ -26,7 +44,7 @@ data Expr
 prettyWithParens :: Expr -> Doc ann
 prettyWithParens (Lit i) = pretty i
 prettyWithParens (Val i) = pretty i
-prettyWithParens e       = parens (pretty e)
+prettyWithParens e = parens (pretty e)
 
 softWrappedBinOp :: Doc a -> Doc a -> Doc a -> Doc a
 softWrappedBinOp op l r = l <+> op <> softline <> align r

@@ -6,3 +6,12 @@
 # VS Code
 
 .vscode
+
+# BNFC build
+
+src/**/*.hi
+src/**/*.o
+src/**/*.log
+src/**/*.aux
+src/**/*.dvi
+src/Haskcalc/Expr/Test

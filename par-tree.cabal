@@ -31,8 +31,16 @@ flag gpu
 
 library
   exposed-modules:
-      Core.Ast
-      Examples
+      Haskcalc.Core.Ast
+      Haskcalc.Examples
+      Haskcalc.Expr.Abs
+      Haskcalc.Expr.ErrM
+      Haskcalc.Expr.Layout
+      Haskcalc.Expr.Lex
+      Haskcalc.Expr.Par
+      Haskcalc.Expr.Print
+      Haskcalc.Expr.Skel
+      Haskcalc.Expr.Test
   other-modules:
       Paths_par_tree
   hs-source-dirs:
